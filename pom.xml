@@ -13,6 +13,9 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <http.port>9080</http.port>
+        <https.port>9443</https.port>
+        <app.name>${project.artifactId}</app.name>
     </properties>
 
     <dependencies>
