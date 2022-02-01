@@ -19,7 +19,7 @@ public class ChatResource {
     private static final Jsonb jsonb = JsonbBuilder.create();
 
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
+    @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @Produces(MediaType.APPLICATION_JSON)
     public String retrieveAllMessages() {
         ArrayList<Message> messages = new ArrayList<>(ChatDatastore.retrieveAllMessage());
@@ -28,7 +28,8 @@ public class ChatResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response postMessage(Message message) {
+    @Produces(MediaType.APPLICATION_JSON) 
+   public Response postMessage(Message message) {
 
         ChatDatastore.push(message);
         String responseMessage = "user: " + message.getUsername() + " / " + message.getMessage() + "\n";
